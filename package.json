@@ -1,14 +1,14 @@
 {
     "name": "Stuff-Alert",
-	"version": "0.0.2",
+  	"version": "0.0.3",
     "private": true,
     "scripts": {
-      "prestart": "mongod --dbpath data --fork --logpath /dev/null",
+      "prestart": "mongod --dbpath data --fork --logpath C:/mongodb/log",
       "start": "node app",
-      "poststop": "mongod --shutdown > /dev/null",
+      "poststop": "mongod --shutdown > C:/mongodb/log",
     },
-},
-	"dependencies": {
+    "author": "Amos E. Ogra",
+	  "dependencies": {
         "express" : "4.14.0",
         "cookie-parser":"1.4.3",
         "body-parser":"1.15.2",

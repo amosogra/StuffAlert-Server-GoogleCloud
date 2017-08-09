@@ -1,11 +1,13 @@
 /**
  * Created by Amos on 10/16/2014.
  */
-var databaseUrl = process.env.MONGO_URL || "node-android"; // "username:password@example.com/mydb", 'mongodb://localhost/test?ssl=true'
-var collections = ["users", "admins", "feed"];
 var mongojs = require("mongojs");
-var db = mongojs(databaseUrl, collections);
 var ObjectID = require("bson-objectid");
+const config = require('../config.js');
+
+var databaseUrl = process.env.MONGO_URL || config.get('MONGO_URL') || "node-android"; // "username:password@example.com/mydb", 'mongodb://localhost/test?ssl=true'
+var collections = ["users", "admins", "feed"];
+var db = mongojs(databaseUrl, collections);
 
 exports.getDatabase = db;
 
