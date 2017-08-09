@@ -3,8 +3,11 @@
 	"version": "0.0.2",
     "private": true,
     "scripts": {
-      "start": "node app"
+      "prestart": "mongod --dbpath data --fork --logpath /dev/null",
+      "start": "node app",
+      "poststop": "mongod --shutdown > /dev/null",
     },
+},
 	"dependencies": {
         "express" : "4.14.0",
         "cookie-parser":"1.4.3",
