@@ -50,7 +50,7 @@ nconf
     NODE_ENV:'production'
     // MongoDB connection string
     // https://docs.mongodb.org/manual/reference/connection-string/
-    MONGO_URL: 'mongodb://localhost:27017',
+    MONGO_URL: 'mongodb://localhost:27017/admin',
     MONGO_COLLECTION: 'admin',
 
     PORT: 8080,
