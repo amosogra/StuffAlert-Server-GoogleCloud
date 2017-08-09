@@ -18,13 +18,19 @@ module.exports = function(app, amosServer) {
     };
 
     app.get('/', function(req, res){
-        res.send(
+        /*res.send(
                 '<form action="/profile/upload" method="post" enctype="multipart/form-data">'+
                 '<input type="file" name="source">'+
                 '<input type="file" name="thumb">'+
                 '<input type="submit" value="Upload">'+
                 '</form>'
-        );
+        );*/
+
+        database.getDatabase(function(json){
+          console.log(json);
+          //res.write("Glory to God Almighty...");
+          res.send(json);
+        })
     });
 
     app.get(/^(.+)$/, function (req, res) {

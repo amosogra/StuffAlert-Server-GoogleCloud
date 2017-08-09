@@ -80,7 +80,7 @@
         server.on('request', expressApp);
         server.listen(cfg.port, function(){
             console.log("AmosServer runs on port "+ server.address().port);
-            console.log("Server Address is: ", server.address().address);
+            console.log("Server Address is: ", server.address());
         });
 
 	}

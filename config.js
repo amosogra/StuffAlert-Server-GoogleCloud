@@ -24,7 +24,7 @@ nconf
   // 2. Environment variables
   .env([
     'DATA_BACKEND',
-    'MONGO_URL',
+    'MONGODB_ADDON_URI',
     'MONGO_COLLECTION',
     'NODE_ENV',
     'PORT',
@@ -47,10 +47,10 @@ nconf
 
     // Connection url for the Memcache instance used to store session data
     //MEMCACHE_URL: 'localhost:11211',
-    NODE_ENV:'production'
+    NODE_ENV:'production',
     // MongoDB connection string
     // https://docs.mongodb.org/manual/reference/connection-string/
-    MONGO_URL: 'mongodb://localhost:27017/admin',
+    MONGODB_ADDON_URI: 'node-android',//'mongodb://localhost:27017/admin',
     MONGO_COLLECTION: 'admin',
 
     PORT: 8080,
@@ -58,7 +58,7 @@ nconf
 
 // Check for required settings
 if (nconf.get('DATA_BACKEND') === 'mongodb') {
-  checkConfig('MONGO_URL');
+  checkConfig('MONGODB_ADDON_URI');
   checkConfig('MONGO_COLLECTION');
 }
 

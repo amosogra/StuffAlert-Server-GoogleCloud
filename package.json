@@ -3,9 +3,9 @@
   	"version": "0.0.3",
     "private": true,
     "scripts": {
-      "prestart": "mongod --dbpath data --fork --logpath C:/mongodb/log",
+      "prestart": "mongod",
       "start": "node app",
-      "poststop": "mongod --shutdown > C:/mongodb/log",
+      "poststop": "mongod --shutdown > C:/mongodb/log/mongo.log"
     },
     "author": "Amos E. Ogra",
 	  "dependencies": {

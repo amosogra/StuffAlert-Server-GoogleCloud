@@ -1,20 +1,22 @@
 /**Created by Amos Ogra on 21/11/2015*/
-'use strict';
+//'use strict';
 
 var express  = require('express');
-var multer  = require('multer');
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser')
+//var multer  = require('multer');
+//var morgan = require('morgan');
+//var bodyParser = require('body-parser');
+//var cookieParser = require('cookie-parser')
 var homeDir = "./home/uploads/";
 var path = require('path');
-const config = require('./config');
+//const config = require('./config');
 
 
 //var connect = require('connect');
 var http = require('http');
 var database = require('./config/database');
 var AmosServer = require('./routes/AmosServer');
+var router = require('./routes/routes.js');
+
 
 var app      = express();
 /*var storage = multer.diskStorage({
@@ -32,19 +34,19 @@ var app      = express();
 // app.use(connect.bodyParser());
 // app.use(connect.logger('dev'));
 // app.use(connect.json());
-// app.use(connect.urlencoded());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(multer({dest:"./home/uploads/raw/tmp"}).any());
-app.use(morgan('dev'));
-app.use(cookieParser());
+// app.use(connect.urlencoded());*/
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
+//app.use(multer({dest:"./home/uploads/raw/tmp"}).any());
+//app.use(morgan('dev'));
+//app.use(cookieParser());
 app.set('trust proxy', true);
 
 
 // you'll probably load configuration from config
    var cfg = {
        ssl: false,
-       port: normalizePort(process.env.PORT) || config.get('PORT') || 8089,
+       port: normalizePort(process.env.PORT) || /*config.get('PORT') ||*/ 8089,
        ssl_key: '/path/to/your/ssl.key',
        ssl_cert: '/path/to/your/ssl.crt',
        eventOnly: true
@@ -54,7 +56,6 @@ app.set('trust proxy', true);
     var sockto = {};
 
 // Routes
-router = require('./routes/routes.js');
 router(app, amosServer);
 
     amosServer.on('connection', function(socket){

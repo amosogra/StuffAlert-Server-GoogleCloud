@@ -3,13 +3,17 @@
  */
 var mongojs = require("mongojs");
 var ObjectID = require("bson-objectid");
-const config = require('../config.js');
+//const config = require('../config.js');
 
-var databaseUrl = process.env.MONGO_URL || config.get('MONGO_URL') || "node-android"; // "username:password@example.com/mydb", 'mongodb://localhost/test?ssl=true'
+var databaseUrl = process.env.MONGODB_ADDON_URI || /*config.get('MONGO_URL') ||*/ "node-android"; // "username:password@example.com/mydb", 'mongodb://localhost/test?ssl=true'
 var collections = ["users", "admins", "feed"];
 var db = mongojs(databaseUrl, collections);
 
-exports.getDatabase = db;
+exports.getDatabase = function (callback){
+  db.users.find(function(found){
+    callback(found);
+  });
+};
 
 exports.writePhotoAndThumb = function(profile, callback) {
     db.users.find({email: profile.myEmail}, function (err, users) {
