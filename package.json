@@ -2,10 +2,11 @@
     "name": "Stuff-Alert",
   	"version": "0.0.3",
     "private": true,
+    "main": "./app.js",
     "scripts": {
-      "prestart": "mongod",
+      "prestart": "mongod --dbpath /var/lib/mongodb --fork --logpath /dev/null",
       "start": "node app",
-      "poststop": "mongod --shutdown > C:/mongodb/log/mongo.log"
+      "poststop": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
     },
     "author": "Amos E. Ogra",
 	  "dependencies": {

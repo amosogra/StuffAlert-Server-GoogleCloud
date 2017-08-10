@@ -2,10 +2,10 @@
 //'use strict';
 
 var express  = require('express');
-//var multer  = require('multer');
-//var morgan = require('morgan');
-//var bodyParser = require('body-parser');
-//var cookieParser = require('cookie-parser')
+var multer  = require('multer');
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser')
 var homeDir = "./home/uploads/";
 var path = require('path');
 //const config = require('./config');
@@ -19,34 +19,20 @@ var router = require('./routes/routes.js');
 
 
 var app      = express();
-/*var storage = multer.diskStorage({
-  destination: function (req, file, callback) {
-    console.log(req);
-    callback(null, "./home/uploads/raw/tmp");
-  },
-  filename: function (req, file, callback) {
-    callback(null, file.fieldname);
-  }
-});*/
+
 // Configuration
-//app.use(express.static('./home/uploads/'));
-// app.use(connect.cookieParser());
-// app.use(connect.bodyParser());
-// app.use(connect.logger('dev'));
-// app.use(connect.json());
-// app.use(connect.urlencoded());*/
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(bodyParser.json());
-//app.use(multer({dest:"./home/uploads/raw/tmp"}).any());
-//app.use(morgan('dev'));
-//app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(multer({dest:"./home/uploads/raw/tmp"}).any());
+app.use(morgan('dev'));
+app.use(cookieParser());
 app.set('trust proxy', true);
 
 
 // you'll probably load configuration from config
    var cfg = {
        ssl: false,
-       port: normalizePort(process.env.PORT) || /*config.get('PORT') ||*/ 8089,
+       port: normalizePort(process.env.PORT) || /*config.get('PORT') ||*/ 8080,
        ssl_key: '/path/to/your/ssl.key',
        ssl_cert: '/path/to/your/ssl.crt',
        eventOnly: true
