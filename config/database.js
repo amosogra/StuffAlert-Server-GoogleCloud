@@ -5,7 +5,7 @@ var mongojs = require("mongojs");
 var ObjectID = require("bson-objectid");
 //const config = require('../config.js');
 
-var databaseUrl = process.env.MONGODB_ADDON_URI || /*config.get('MONGO_URL') ||*/ "mongodb://amosogra:ffffgggg@localhost:27017/stuffalert-db"; // "username:password@example.com/mydb", 'mongodb://localhost/test?ssl=true'
+var databaseUrl = process.env.MONGODB_ADDON_URI || /*config.get('MONGO_URL') ||*/ "mongodb://amosogra:ffffgggg@127.0.0.1:27017/stuffalert-db"; // "username:password@example.com/mydb", 'mongodb://localhost/test?ssl=true'
 var collections = ["users", "admins", "feed"];
 var db = mongojs(databaseUrl, collections);
 
