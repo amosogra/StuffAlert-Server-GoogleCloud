@@ -32,7 +32,7 @@ app.set('trust proxy', true);
 // you'll probably load configuration from config
    var cfg = {
        ssl: false,
-       port: normalizePort(process.env.PORT) || /*config.get('PORT') ||*/ 8080,
+       port: normalizePort(process.env.PORT) ||  8080,
        ssl_key: '/path/to/your/ssl.key',
        ssl_cert: '/path/to/your/ssl.crt',
        eventOnly: true
