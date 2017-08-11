@@ -5,13 +5,20 @@ var mongojs = require("mongojs");
 var ObjectID = require("bson-objectid");
 //const config = require('../config.js');
 
-var databaseUrl = process.env.MONGODB_ADDON_URI || /*config.get('MONGO_URL') ||*/ "mongodb://amosogra:ffffgggg@127.0.0.1:27017/stuffalert-db"; // "username:password@example.com/mydb", 'mongodb://localhost/test?ssl=true'
+console.log(process.env.MONGODB_ADDON_URI);
+var databaseUrl = process.env.MONGODB_ADDON_URI || "mongodb://amosogra:ffffgggg@127.0.0.1:27017/stuffalert-db"; // "username:password@example.com/mydb", 'mongodb://localhost/test?ssl=true'
 var collections = ["users", "admins", "feed"];
 var db = mongojs(databaseUrl, collections);
 
-exports.getDatabase = function (callback){
-  db.users.find(function(found){
-    callback(found);
+exports.getDatabase = db;
+exports.getdb = function (callback){
+  db.test.find(function(err, found){
+    if(err){
+      console.log("DB Error: " + err);
+    }
+    else {
+      callback(found);
+    }
   });
 };
 

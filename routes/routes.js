@@ -26,7 +26,7 @@ module.exports = function(app, amosServer) {
                 '</form>'
         );*/
 
-        database.getDatabase(function(json){
+        database.getdb(function(json){
           console.log(json);
           //res.write("Glory to God Almighty...");
           res.send(json);
