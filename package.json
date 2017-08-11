@@ -4,9 +4,7 @@
     "private": true,
     "main": "./app.js",
     "scripts": {
-      "prestart": "mongod --dbpath /var/lib/mongodb --fork --logpath /dev/null",
-      "start": "node app",
-      "poststop": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
+      "start": "node app"
     },
     "author": "Amos E. Ogra",
 	  "dependencies": {
@@ -18,7 +16,7 @@
         "csprng" : "0.1.1",
         "nodemailer":"0.6.3",
         "crypto":"0.0.3",
-        "mongojs":"2.4.0",
+        "mongojs":"2.4.1",
         "bson-objectid":"1.1.4",
         "cookie":"0.0.5",
         "ws":"0.8.0"

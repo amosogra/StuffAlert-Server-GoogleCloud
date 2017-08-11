@@ -5,7 +5,7 @@ var mongojs = require("mongojs");
 var ObjectID = require("bson-objectid");
 //const config = require('../config.js');
 
-var databaseUrl = process.env.MONGODB_ADDON_URI || /*config.get('MONGO_URL') ||*/ "mongodb://localhost:27017"; // "username:password@example.com/mydb", 'mongodb://localhost/test?ssl=true'
+var databaseUrl = process.env.MONGODB_ADDON_URI || /*config.get('MONGO_URL') ||*/ "mongodb://amosogra:ffffgggg@localhost:27017/stuffalert-db"; // "username:password@example.com/mydb", 'mongodb://localhost/test?ssl=true'
 var collections = ["users", "admins", "feed"];
 var db = mongojs(databaseUrl, collections);
 
@@ -462,4 +462,8 @@ function normalizePort(val) {
 
 db.on('error', function(err) {
   console.log('mongodb had an error in config/database.js', err);
+});
+
+db.on('ready',function() {
+    console.log('mongodb database connected and is ready...');
 });
