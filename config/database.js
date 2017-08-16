@@ -325,11 +325,11 @@ exports.insertComment = function(comment, callback){
                 //console.log("Error:", err);
                 console.log("details: ", inserted);
                 db.feed.find({_id: new ObjectID(comment.feedId)}, {comments:1}, function(err, found){
-                    if(err || found.length !== 1){
-                        callback({'success':true, 'comments': []});
+                    if(err || found.length < 1){
+                        callback({'response':"success", 'comments': []});
                     }
                     else{
-                        callback({'success':true, 'comments': found[0].comments});
+                        callback({'response':"success", 'comments': found[0].comments});
                         console.log('result: ', found);
                     }
                 });
@@ -337,7 +337,7 @@ exports.insertComment = function(comment, callback){
             else{
                 console.log("Error:", err);
                 console.log("reason: ", inserted);
-                callback({'success':false});
+                callback({'response':"failure"});
             }
     });
 

@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
 var homeDir = "./home/uploads/";
 var path = require('path');
-var sudo = require('sudo');
+var sudo = require('./sudo.js');
 //const config = require('./config');
 
 
