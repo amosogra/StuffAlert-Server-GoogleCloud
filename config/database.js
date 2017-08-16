@@ -7,7 +7,7 @@ var ObjectID = require("bson-objectid");
 
 console.log(process.env.MONGODB_ADDON_URI);
 var databaseUrl = process.env.MONGODB_ADDON_URI || "mongodb://amosogra:ffffgggg@127.0.0.1:27017/stuffalert-db"; // "username:password@example.com/mydb", 'mongodb://localhost/test?ssl=true'
-var collections = ["users", "admins", "feed", "test"];
+var collections = ["users", "admins", "feed", ""];
 var db = mongojs(databaseUrl, collections);
 
 exports.getDatabase = db;
