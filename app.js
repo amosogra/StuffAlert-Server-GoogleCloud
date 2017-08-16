@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
 var homeDir = "./home/uploads/";
 var path = require('path');
-var sudo = require('./sudo.js');
+//var sudo = require('./sudo.js');
 //const config = require('./config');
 
 
@@ -18,16 +18,16 @@ var database = require('./config/database');
 var AmosServer = require('./routes/AmosServer');
 var router = require('./routes/routes.js');
 
-var options = {
+/*var options = {
     password: ffffgggg
     cachePassword: true,
     prompt: 'Password, yo? ',
-    spawnOptions: { /* other options for spawn */ }
+    spawnOptions: { /* other options for spawn * }
 };
 var child = sudo([ 'ls', '-l', '/tmp' ], options);
 child.stdout.on('data', function (data) {
     console.log(data.toString());
-});
+});*/
 
 var app      = express();
 
