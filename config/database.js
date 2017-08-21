@@ -325,7 +325,7 @@ exports.insertComment = function(comment, callback){
                 //console.log("Error:", err);
                 console.log("details: ", inserted);
                 db.feed.find({_id: new ObjectID(comment.feedId)}, {comments:1}, function(err, found){
-                    if(err || found.length < 1){
+                    if(err || found.length !== 1){
                         callback({'response':"success", 'comments': []});
                     }
                     else{
@@ -340,7 +340,6 @@ exports.insertComment = function(comment, callback){
                 callback({'response':"failure"});
             }
     });
-
 }
 
 exports.readLatestFeed = function(timestamp, type, callback){

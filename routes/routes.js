@@ -29,7 +29,7 @@ module.exports = function(app, amosServer) {
         database.getdb(function(json){
           console.log(json);
           //res.write("Glory to God Almighty...");
-          res.send(json);
+          res.send("All Glory to Almighty God, in Jesus Name, Amen!");
         })
     });
 
@@ -200,7 +200,7 @@ module.exports = function(app, amosServer) {
         //console.log(comment);
 
         database.insertComment(comment, function(response){
-           if(!response.success){
+           if(response.response !== "success"){
                res.json(response);
                res.end();
                console.log("error: ", response);
